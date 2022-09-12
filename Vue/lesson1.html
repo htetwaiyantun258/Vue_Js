@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Lesson 1</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+</head>
+<body>
+    <div id="root">
+        <h1 style="margin-left: 90px;">{{head}}</h1>
+        <input type="text" v-model="inputText">
+        <p v-text="inputText"></p>
+        <img v-bind:src="url" alt="" srcset="" style="width: 800px; height: 500px">
+        <p  style="width: 800px; margin-top:30px;">{{para}}</p>
+        <span v-text="msg"></span>
+        <!-- same as -->
+        <ul>
+            <li v-for="(fruit,index) in fruits">{{fruit}}</li>
+            <button v-model="couter">{{total vote : coute}}</button>
+        </ul>
+        
+    </div>
+    
+    <script>
+        new Vue({
+            el: '#root',
+            data: function(){
+                return {
+                    head: 'Vue Js Training Class',
+                    url : 'https://ccweb.imgix.net/https%3A%2F%2Fwww.classcentral.com%2Fimages%2Fmeta%2Fmeta-catalog-bg.png?blend=https%3A%2F%2Fassets.imgix.net%2F~text%3F%26txt-color%3D06213D%26txt-size%3D95%26w%3D915%26txt-lead%3D-35%26txt-pad%3D0%26txt-font%3DSeravek%2CBold%26txt64%3DVnVlIEpT&blend-align=top%2Cleft&blend-h=300&blend-mode=normal&blend-pad=0&blend-w=915&blend-x=55&blend-y=100&h=512&ixlib=php-3.3.1&txt=100%2B%20Online%20Courses&txt-align=left%2Cbottom&txt-color=0D4DF1&txt-font=Seravek%2CBold&txt-pad=55&txt-size=40&w=1024&s=632f0a174f79ada1d6260c1fc39b3d4a',
+                    maried : false,
+                    para:'With Options API, we use the data option to declare reactive state of a component. The option value should be a function that returns an object. Vue will call the function when creating a new component instance, and wrap the returned object in its reactivity system. Any top-level properties of this object are proxied on the component instance (this in methods and lifecycle hooks):',
+                    children:[
+                        {petOne:'jacky'},
+                        {petTwo:'panda'},
+                    ],
+                    msg:"hello deractived",
+                    inputText:'',
+                    fruits:['apple','orange','pen','milk'],
+                    coute:0
+                }
+            },
+            methods:{
+                couter(){
+                    this.coute++
+
+                }
+            }
+           
+
+               
+        })
+    </script>
+</body>
+</html>
